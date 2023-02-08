@@ -173,6 +173,7 @@ public class MainApp {
             }else{
                 System.out.println("Day "+day+": camping");
             }
+            continue;
         }
 
     }
