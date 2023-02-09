@@ -1,4 +1,5 @@
 package be.intecbrussel;
+import java.util.Locale;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -175,6 +176,74 @@ public class MainApp {
             }
             continue;
         }
+
+        /* BONUS+Rock Paper Scissors+
+        0 - rock
+        2 - paper
+        1 - scissors
+                 */
+
+
+        Scanner in = new Scanner(System.in);
+
+        String user;
+        String user_1;
+        String stop = "stop";
+        int aan_user = 0;
+        int aan_comp = 0;
+
+        System.out.println("Start game!");
+        System.out.println("Rock, scissors, paper");
+
+        do {
+            user = in.nextLine();
+            user_1 = user.toLowerCase(Locale.ROOT);
+
+            int num = random.nextInt(3);
+
+            if (num==0&&(user_1.equals("paper"))){
+                System.out.println("Speler: PAPER, Computer: ROCK. You've won!");
+
+                aan_user++;
+
+            }else if (num==0&&(user_1.equals("scissors"))){
+                System.out.println("Speler: SCISSORS, computer: ROCK. The computer won!");
+
+                aan_comp++;
+
+            }else if (num==0&&(user_1.equals("rock"))){
+                System.out.println("Speler: ROCK, computer: ROCK. Draw!");
+
+            }else if (num==2&&(user_1.equals("paper"))){
+                System.out.println("Speler: PAPER, computer: PAPER. Draw!");
+
+            } else if (num==2&&(user_1.equals("scissors"))) {
+                System.out.println("Speler: SCISSORS, computer PAPER. You've won!");
+
+                aan_user++;
+
+            }else if (num==2&&(user_1.equals("rock"))){
+                System.out.println("Speler: ROCK, computer: PAPER. The computer won!");
+
+                aan_comp++;
+
+            }else if (num==1&&(user_1.equals("scissors"))){
+                System.out.println("Speler: SCISSORS, computer: SCISSORS. Draw!");
+
+            } else if (num==1&&(user_1.equals("paper"))) {
+                System.out.println("Speler: PAPER, computer: SCISSORS. The computer won!");
+
+                aan_comp++;
+
+            } else if (num==1&&(user_1.equals("rock"))) {
+                System.out.println("Speler: ROCK, computer: SCISSORS. You've won!");
+
+                aan_user++;
+            }
+        }while (!(user_1.equals(stop)));
+
+        System.out.println("SPELER win(s): " + aan_user);
+        System.out.println("COMPUTER win(s): " +aan_comp);
 
     }
 }
